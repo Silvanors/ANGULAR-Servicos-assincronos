@@ -1,0 +1,56 @@
+<div class="card w-100 my-5">
+    <div class="card-body">
+        <h1 class="card-title text-center">Lista de Usuários</h1>
+        <!-- o botão abaixo fará link para o componente formulário usando routerLink="caminho do componente form" -->
+        <button class="btn btn-success mb-4 float-end" routerLink="/form">
+            Cadastrar Novo
+        </button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Idade</th>
+                    <th>Profissão</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- esta parte foi utilizada antes da conexão com a api
+                    <th>1</th>
+                    <th>Ivonaldo</th>
+                    <th>26</th>
+                    <th>Desenvolvedor</th>
+                    <th>
+                        <button class="btn btn-primary">Editar</button>
+                    </th>
+                    <th>
+                        <button class="btn btn-danger">Excluir</button>
+                    </th>
+                    -->
+
+                    <tr *ngFor="let user of users">
+                        <!--o *ngFor é para realizar a iteração dos itens da tabela com o que tem no back end 
+                        o user é o array de usuários para interação-->
+                        <th>{{ user.id }}</th>
+                        <th>{{ user.nome }}</th>
+                        <th>{{ user.sobrenome }}</th>
+                        <th>{{ user.idade }}</th>
+                        <th>{{ user.profissao }}</th>
+                        <th>
+                            <button class="btn btn-primary" [routerLink]="['/form', user.id]">Editar</button>
+                            <!-- é possível passar um array pelo routerLink e o primeiro item é a rota e o segundo
+                            é propriedade que deseja passar via rota-->
+                        </th>
+                        <th>
+                            <button class="btn btn-danger" (click)="deleteUser(user.id)">Excluir</button>
+                        </th>
+
+                </tr>
+            </tbody>    
+        </table>
+    </div>
+
+</div>

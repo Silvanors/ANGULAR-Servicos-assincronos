@@ -1,0 +1,59 @@
+<!--ATENÇÃO: É possível usar o sheet.best no site: https://sheet.best/ da google para substituir o back-and em aplicações pequenas-->
+
+<div class="card w-100 my-5">
+    <div class="card-body">
+        <h1 class="card-title text-center">Formulário de Usuários</h1>
+        <form [formGroup]="userForm">
+            <!--foi usado o [formGroup]="userForm" para identificar o formulário e realizar o encadeamento com
+            constructor(private fb: FormBuilder) this.userForm = this.fb.group -->
+            <div class="row my-4">
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Digite seu nome">
+                        <!--foi usado a propriedade formControlName="" para realizar o encadeamento com os imputs do formulário
+                            e deve ser igualada com as variáveis de controle do formulário, que no caso estão no typescript-->
+                        <label for="nome">Nome</label>
+                    </div>
+                </div>          
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" formControlName="sobrenome" id="sobrenome" placeholder="Digite seu sobrenome">
+                        <label for="sobrenome">Sobrenome</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" formControlName="idade" id="idade" placeholder="Digite sua idade">
+                        <label for="idade"> idade</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" formControlName="profissao" id="Profissao" placeholder="Digite sua profissao">
+                        <label for="profissao">Profissão</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-12">
+                    <div class="form-group col-12 mt-4">
+                        <button type="button" class="btn btn-outline-danger float-start">Cancelar</button>            
+                        <button type="button" class="btn btn-outline-success float-end" (click)="actionButton()">Enviar</button>
+                        <!-- o botão abaixo funcionou até a construção da função editar
+                            <button type="button" class="btn btn-outline-success float-end" (click)="createUser()">Enviar</button>
+                        -->
+                        
+                        <!--No botão enviar deve-ser fazer um metodo click que chamará a função createUser lá no 
+                        export class UserFormComponent implements OnInit do user-form.component-->
+                    </div>
+                </div>
+            </div>
+                          
+
+            
+        </form>
+    </div>
+</div>
+
